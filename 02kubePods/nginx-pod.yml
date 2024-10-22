@@ -1,0 +1,14 @@
+apiVersion : v1
+kind	: Pod
+
+metadata:
+  name : nginx-dpod
+  namespace	: vaibhav-ns
+  labels:
+    nginx : dhondu
+spec:
+  containers:
+  - image : nginx
+    name : nginx-container
+    ports :
+    - containerPort : 80
