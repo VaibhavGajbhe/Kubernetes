@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: nginx-dpod
+  namespace: gemini-ns
+spec:
+  volumes:
+  - name : dhondu-vol
+    persistentVolumeClaim: 
+      claimName: persistenet-volume-claim
+  containers:
+  - image: nginx
+    name: nginx-container
+    ports:
+    - containerPort: 80
+    volumeMounts:
+    # name is given in vloumes name
+    - name : dhondu-vol
+      mountPath : /usr/share/nginx/html/

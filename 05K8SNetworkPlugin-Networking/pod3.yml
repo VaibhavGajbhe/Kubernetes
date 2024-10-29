@@ -1,0 +1,14 @@
+apiVersion : v1
+kind	: Pod
+
+metadata :
+  name : firefox-pod-3
+  namespace : vaibhav-ns
+  labels : 
+    img : firefox-pod03
+spec:
+  containers :
+  - name: firefox-container 
+    image : linuxserver/firefox
+    ports:
+    - containerPort: 3000

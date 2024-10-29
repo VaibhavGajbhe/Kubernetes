@@ -1,0 +1,18 @@
+apiVersion : networking.k8s.io/v1
+kind	: NetworkPolicy
+
+metadata :
+  name : azure-np
+  namespace : vaibhav-ns
+spec:
+  ingress:
+  - from :
+    - ipBlock:
+        cidr : 10.244.0.170/32
+    # its last cidr range that meance it inly allows one ip of firefox browser
+    # in port 80 
+    ports:
+    - port : 80 
+  podSelector :
+    matchLabels :
+      img : nginx-pod02

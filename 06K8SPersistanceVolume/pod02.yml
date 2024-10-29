@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: nginx-dpod01
+  namespace: vaibhav-ns
+  labels:
+    nginx: dhondu
+spec:
+  volumes:
+  - name : dhondu-vol
+    emptyDir:
+      sizeLimit: 1G
+  containers:
+    - image: nginx
+      name: nginx-container01
+      ports:
+        - containerPort: 80
+      volumeMounts:
+      # this volume mount name delare above in emptyDir
+      - name : dhondu-vol
+        mountPath : /var/dhondu
