@@ -1,0 +1,14 @@
+apiVersion	: storage.k8s.io/v1
+kind	: StorageClass
+metadata	:
+  name : vaibhav-storage-class
+  namespace : vaibhav-ns
+
+parameters:
+  storageAccount : vaibhavstorageacc0002
+  secretname:  azure-secret
+  resourceGroup: vaibhav-rg
+
+provisioner: file.csi.azure.com
+
+reclaimPolicy : Retain
