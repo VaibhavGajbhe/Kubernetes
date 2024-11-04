@@ -1,0 +1,39 @@
+apiVersion	: v1
+kind	: Pod
+metadata	:
+  name : nginx-pod
+  namespace : vaibhav-ns
+
+spec :
+  
+# Affinity kye value is set into Azure Clustere
+  affinity: 
+    nodeAffinity :
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - preference :
+          matchExpressions:
+          - key : papa
+            operator : In
+            values :
+            - dhondu
+  
+#  Taints And TOlerations
+#   tolerations:
+#   - effect : NoSchedule
+#     key	: socks
+#     operator	: In
+#     value:	Badbu
+
+  containers :
+  - image : nginx
+    name : nginx-container
+    ports :
+    - containerPort : 80
+    resources :
+      requests :
+        cpu : 500m
+        memory : 200M
+      limits :
+        cpu : 1
+        memory : 1G
+        

@@ -1,0 +1,19 @@
+
+apiVersion	: networking.k8s.io/v1
+kind	: NetworkPolicy
+
+metadata :
+  name : network-policy
+  namespace : gemini-pro
+spec:
+  podSelector:
+    matchLabels :
+      project: gemini
+  ingress:
+  - from :
+    - ipBlock:
+        cidr : 10.244.1.221/32
+    # its last cidr range that meance it inly allows one ip of firefox browser
+    # in port 80 
+    ports:
+    - port : 80 

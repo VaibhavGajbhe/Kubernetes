@@ -1,0 +1,22 @@
+apiVersion: v1
+kind:  Pod
+
+
+metadata:
+  name: nginx-pod
+  namespace: vaibhav-ns
+
+spec:
+  volumes:
+  - name: dhondu-vol
+    persistentVolumeClaim: 
+      claimName : vaibhav-pvc
+
+  containers:
+  - image: nginx
+    name: nginx-conatiner
+    ports:
+    - containerPort: 80
+    volumeMounts:
+    - name: dhondu-vol
+      mountPath: /dhondu/vol/
