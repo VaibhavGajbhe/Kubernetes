@@ -17,7 +17,7 @@ spec :
             values :
             - dhondu
   
-# # Taints And TOlerations
+#  Taints And TOlerations
 #   tolerations:
 #   - effect : NoSchedule
 #     key	: socks
