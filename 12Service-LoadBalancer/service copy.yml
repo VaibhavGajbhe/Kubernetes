@@ -1,0 +1,13 @@
+apiVersion	: v1
+kind	: Service
+metadata	:
+  name : dhondu-service
+  namespace : default
+spec:
+  # ClusterIP used for private ip its recommonded we can use private ip using network ingress rule
+  type:  ClusterIP
+  selector:
+    app: nginxapp
+  ports :
+  - port: 80
+    targetPort : 80

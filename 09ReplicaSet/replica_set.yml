@@ -1,0 +1,25 @@
+apiVersion	: apps/v1
+kind	: ReplicaSet
+metadata	:
+  name : vaibhav-replicaset
+  namespace : default
+spec :
+  replicas	: 4
+  selector	:
+    matchExpressions	:
+    - key	: nginxapp
+      operator	: In
+      values	:
+      - dhondu
+  template :
+    metadata:
+      name : nginx-dpod
+      namespace	: default
+      labels:
+        nginxapp : dhondu
+    spec:
+      containers:
+      - image : nginx
+        name : nginx-container
+        ports :
+        - containerPort : 80

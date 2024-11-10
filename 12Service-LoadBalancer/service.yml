@@ -1,0 +1,12 @@
+apiVersion	: v1
+kind	: Service
+metadata	:
+  name : dhondu-service
+  namespace : default
+spec:
+  type: LoadBalancer 
+  selector:
+    app: nginxapp
+  ports :
+  - port: 80
+    targetPort : 80

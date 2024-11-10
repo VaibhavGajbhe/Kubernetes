@@ -20,9 +20,9 @@ spec :
 #  Taints And TOlerations
 #   tolerations:
 #   - effect : NoSchedule
-#     key	: socks
-#     operator	: In
-#     value:	Badbu
+      # key	: socks
+      # operator	: In
+      # value:	Badbu
 
   containers :
   - image : nginx
