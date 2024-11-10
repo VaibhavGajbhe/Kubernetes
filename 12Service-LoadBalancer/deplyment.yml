@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name : vaibhav-deployment
+  namespace : default
+spec:
+  replicas: 5
+  strategy:
+    type : RollingUpdate
+    rollingUpdate:
+      maxSurge	: 1
+      maxUnavailable	: 1
+  selector	:
+      matchExpressions :
+      - key	: app
+        operator:	In
+        values	:
+        - nginxapp
+  template:
+    metadata :
+      name : multi-container-dpod
+      namespace: default
+      labels:
+        app : nginxapp
+    spec :
+      containers:
+      - image : nginx
+        name : nginx-container
+        ports :
+        - containerPort : 80
+      
